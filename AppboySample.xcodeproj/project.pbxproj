@@ -1,0 +1,326 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ABE65CF715554CC500648CE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE65CF615554CC500648CE2 /* UIKit.framework */; };
+		ABE65CF915554CC500648CE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE65CF815554CC500648CE2 /* Foundation.framework */; };
+		ABE65CFB15554CC500648CE2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE65CFA15554CC500648CE2 /* CoreGraphics.framework */; };
+		ABE65D0115554CC500648CE2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABE65CFF15554CC500648CE2 /* InfoPlist.strings */; };
+		ABE65D0315554CC500648CE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE65D0215554CC500648CE2 /* main.m */; };
+		ABE65D0715554CC500648CE2 /* ABSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE65D0615554CC500648CE2 /* ABSAppDelegate.m */; };
+		ABE65D0A15554CC500648CE2 /* ABSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE65D0915554CC500648CE2 /* ABSViewController.m */; };
+		ABE65D0D15554CC500648CE2 /* ABSViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABE65D0B15554CC500648CE2 /* ABSViewController_iPhone.xib */; };
+		ABE65D1015554CC500648CE2 /* ABSViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABE65D0E15554CC500648CE2 /* ABSViewController_iPad.xib */; };
+		ABE65D1B15554EF300648CE2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE65D1A15554EF300648CE2 /* SystemConfiguration.framework */; };
+		ABE65D1D15554EFA00648CE2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE65D1C15554EFA00648CE2 /* QuartzCore.framework */; };
+		ABE65D1F15554F0000648CE2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE65D1E15554F0000648CE2 /* CoreLocation.framework */; };
+		ABE65D2115554F1300648CE2 /* libAppboyKitLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE65D2015554F1300648CE2 /* libAppboyKitLibrary.a */; };
+		ABE65D2315554F2300648CE2 /* AppboyKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = ABE65D2215554F2300648CE2 /* AppboyKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ABE65CF215554CC500648CE2 /* AppboySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppboySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABE65CF615554CC500648CE2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		ABE65CF815554CC500648CE2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ABE65CFA15554CC500648CE2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ABE65CFE15554CC500648CE2 /* AppboySample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppboySample-Info.plist"; sourceTree = "<group>"; };
+		ABE65D0015554CC500648CE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABE65D0215554CC500648CE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ABE65D0415554CC500648CE2 /* AppboySample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppboySample-Prefix.pch"; sourceTree = "<group>"; };
+		ABE65D0515554CC500648CE2 /* ABSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABSAppDelegate.h; sourceTree = "<group>"; };
+		ABE65D0615554CC500648CE2 /* ABSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABSAppDelegate.m; sourceTree = "<group>"; };
+		ABE65D0815554CC500648CE2 /* ABSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABSViewController.h; sourceTree = "<group>"; };
+		ABE65D0915554CC500648CE2 /* ABSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABSViewController.m; sourceTree = "<group>"; };
+		ABE65D0C15554CC500648CE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ABSViewController_iPhone.xib; sourceTree = "<group>"; };
+		ABE65D0F15554CC500648CE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ABSViewController_iPad.xib; sourceTree = "<group>"; };
+		ABE65D1815554ED000648CE2 /* AppboySession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppboySession.h; path = AppboyRelease/AppboySession.h; sourceTree = "<group>"; };
+		ABE65D1915554EDB00648CE2 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJson.h; path = AppboyRelease/SBJson/Headers/SBJson.h; sourceTree = "<group>"; };
+		ABE65D1A15554EF300648CE2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		ABE65D1C15554EFA00648CE2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ABE65D1E15554F0000648CE2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		ABE65D2015554F1300648CE2 /* libAppboyKitLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAppboyKitLibrary.a; path = AppboyRelease/libAppboyKitLibrary.a; sourceTree = "<group>"; };
+		ABE65D2215554F2300648CE2 /* AppboyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppboyKit.framework; path = AppboyRelease/AppboyKit.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ABE65CEF15554CC500648CE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABE65D2115554F1300648CE2 /* libAppboyKitLibrary.a in Frameworks */,
+				ABE65D1F15554F0000648CE2 /* CoreLocation.framework in Frameworks */,
+				ABE65D1D15554EFA00648CE2 /* QuartzCore.framework in Frameworks */,
+				ABE65D1B15554EF300648CE2 /* SystemConfiguration.framework in Frameworks */,
+				ABE65CF715554CC500648CE2 /* UIKit.framework in Frameworks */,
+				ABE65CF915554CC500648CE2 /* Foundation.framework in Frameworks */,
+				ABE65CFB15554CC500648CE2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ABE65CE715554CC500648CE2 = {
+			isa = PBXGroup;
+			children = (
+				ABE65D2215554F2300648CE2 /* AppboyKit.framework */,
+				ABE65D2015554F1300648CE2 /* libAppboyKitLibrary.a */,
+				ABE65D1E15554F0000648CE2 /* CoreLocation.framework */,
+				ABE65D1C15554EFA00648CE2 /* QuartzCore.framework */,
+				ABE65D1A15554EF300648CE2 /* SystemConfiguration.framework */,
+				ABE65D1915554EDB00648CE2 /* SBJson.h */,
+				ABE65D1815554ED000648CE2 /* AppboySession.h */,
+				ABE65CFC15554CC500648CE2 /* AppboySample */,
+				ABE65CF515554CC500648CE2 /* Frameworks */,
+				ABE65CF315554CC500648CE2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ABE65CF315554CC500648CE2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABE65CF215554CC500648CE2 /* AppboySample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABE65CF515554CC500648CE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABE65CF615554CC500648CE2 /* UIKit.framework */,
+				ABE65CF815554CC500648CE2 /* Foundation.framework */,
+				ABE65CFA15554CC500648CE2 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABE65CFC15554CC500648CE2 /* AppboySample */ = {
+			isa = PBXGroup;
+			children = (
+				ABE65D0515554CC500648CE2 /* ABSAppDelegate.h */,
+				ABE65D0615554CC500648CE2 /* ABSAppDelegate.m */,
+				ABE65D0815554CC500648CE2 /* ABSViewController.h */,
+				ABE65D0915554CC500648CE2 /* ABSViewController.m */,
+				ABE65D0B15554CC500648CE2 /* ABSViewController_iPhone.xib */,
+				ABE65D0E15554CC500648CE2 /* ABSViewController_iPad.xib */,
+				ABE65CFD15554CC500648CE2 /* Supporting Files */,
+			);
+			path = AppboySample;
+			sourceTree = "<group>";
+		};
+		ABE65CFD15554CC500648CE2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABE65CFE15554CC500648CE2 /* AppboySample-Info.plist */,
+				ABE65CFF15554CC500648CE2 /* InfoPlist.strings */,
+				ABE65D0215554CC500648CE2 /* main.m */,
+				ABE65D0415554CC500648CE2 /* AppboySample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ABE65CF115554CC500648CE2 /* AppboySample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABE65D1315554CC500648CE2 /* Build configuration list for PBXNativeTarget "AppboySample" */;
+			buildPhases = (
+				ABE65CEE15554CC500648CE2 /* Sources */,
+				ABE65CEF15554CC500648CE2 /* Frameworks */,
+				ABE65CF015554CC500648CE2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppboySample;
+			productName = AppboySample;
+			productReference = ABE65CF215554CC500648CE2 /* AppboySample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABE65CE915554CC500648CE2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ABS;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = ABE65CEC15554CC500648CE2 /* Build configuration list for PBXProject "AppboySample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ABE65CE715554CC500648CE2;
+			productRefGroup = ABE65CF315554CC500648CE2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABE65CF115554CC500648CE2 /* AppboySample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABE65CF015554CC500648CE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABE65D2315554F2300648CE2 /* AppboyKit.framework in Resources */,
+				ABE65D0115554CC500648CE2 /* InfoPlist.strings in Resources */,
+				ABE65D0D15554CC500648CE2 /* ABSViewController_iPhone.xib in Resources */,
+				ABE65D1015554CC500648CE2 /* ABSViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ABE65CEE15554CC500648CE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABE65D0315554CC500648CE2 /* main.m in Sources */,
+				ABE65D0715554CC500648CE2 /* ABSAppDelegate.m in Sources */,
+				ABE65D0A15554CC500648CE2 /* ABSViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ABE65CFF15554CC500648CE2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABE65D0015554CC500648CE2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ABE65D0B15554CC500648CE2 /* ABSViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABE65D0C15554CC500648CE2 /* en */,
+			);
+			name = ABSViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		ABE65D0E15554CC500648CE2 /* ABSViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABE65D0F15554CC500648CE2 /* en */,
+			);
+			name = ABSViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ABE65D1115554CC500648CE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ABE65D1215554CC500648CE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ABE65D1415554CC500648CE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AppboySample/AppboySample-Prefix.pch";
+				INFOPLIST_FILE = "AppboySample/AppboySample-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AppboyRelease\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ABE65D1515554CC500648CE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AppboySample/AppboySample-Prefix.pch";
+				INFOPLIST_FILE = "AppboySample/AppboySample-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AppboyRelease\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ABE65CEC15554CC500648CE2 /* Build configuration list for PBXProject "AppboySample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABE65D1115554CC500648CE2 /* Debug */,
+				ABE65D1215554CC500648CE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABE65D1315554CC500648CE2 /* Build configuration list for PBXNativeTarget "AppboySample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABE65D1415554CC500648CE2 /* Debug */,
+				ABE65D1515554CC500648CE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABE65CE915554CC500648CE2 /* Project object */;
+}
