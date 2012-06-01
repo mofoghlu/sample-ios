@@ -7,13 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "src/FBConnect.h"
 
 @class ABSViewController;
 
-@interface ABSAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ABSAppDelegate : UIResponder <UIApplicationDelegate, FBSessionDelegate> {
+    Facebook *facebook;
+}
+-(void) loginWithFacebook;
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) ABSViewController *viewController;
+@property (nonatomic, retain) Facebook *facebook;
 
 @end

@@ -16,6 +16,7 @@
 
 @synthesize window = _window;
 @synthesize viewController = _viewController;
+@synthesize facebook;
 
 - (void)dealloc
 {
@@ -35,7 +36,72 @@
     }
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    // Register for push notifications
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+    
     return YES;
+}
+
+-(void)loginWithFacebook {
+    facebook = [[Facebook alloc] initWithAppId:@"236301463146589" andDelegate:self];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"FBAccessTokenKey"] 
+        && [defaults objectForKey:@"FBExpirationDateKey"]) {
+        facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
+        facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
+    }
+    if (![facebook isSessionValid]) {
+        NSArray *permissions = [[NSArray alloc] initWithObjects: @"user_about_me", @"user_hometown", @"email", @"publish_stream", @"user_birthday", @"user_likes", nil];
+        [facebook authorize:permissions];
+    }
+}
+
+-(void)fbDidExtendToken:(NSString *)accessToken expiresAt:(NSDate *)expiresAt {
+    NSLog(@"token extended");
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:accessToken forKey:@"FBAccessTokenKey"];
+    [defaults setObject:expiresAt forKey:@"FBExpirationDateKey"];
+    [defaults synchronize];
+    [AppboySession setFacebookAccessToken:[facebook accessToken] expiration:[facebook expirationDate]];
+}
+
+- (void) fbDidLogout {
+    // Remove saved authorization information if it exists
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"FBAccessTokenKey"]) {
+        [defaults removeObjectForKey:@"FBAccessTokenKey"];
+        [defaults removeObjectForKey:@"FBExpirationDateKey"];
+        [defaults synchronize];
+    }
+}
+
+// For Facebook iOS 4.2+ support
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [facebook handleOpenURL:url]; 
+}
+
+- (void)fbDidLogin {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
+    [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
+    [defaults synchronize];
+    
+    [AppboySession setFacebookAccessToken:[facebook accessToken] expiration:[facebook expirationDate]];
+    
+    // Log out of Facebook so you can keep hitting "Login with Facebook" button on home screen
+    // and have it consistently go to Facebook.
+    [facebook logout];
+}
+
+// Push Notification related
+- (void) application: (UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [AppboySession registerPushToken:[NSString stringWithFormat:@"%@", deviceToken]];
+    NSLog(@"deviceToken: %@", deviceToken);
+}
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+    NSLog(@"Error in registration. Error: %@", err);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -58,7 +124,8 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [AppboySession sessionWithApiKey:@"1fc95ec5-2036-4016-8174-d69c7924ccbf" usingDelegate:self.viewController] || [AppboySession displayAppboy];
+    [facebook extendAccessTokenIfNeeded];
+    [AppboySession sessionWithApiKey:@"1fc95ec5-2036-4016-8174-d69c7924ccbf" usingDelegate:self.viewController];
 
 }
 

@@ -25,18 +25,16 @@ enum kApppboyDisplayControl {
  * @param delegate optional AppboySessionDelegate
  * @return YES if started; NO if unavailable
  */
-+ (BOOL) sessionWithApiKey:(NSString *)apikey 
-         usingDelegate:(id)delegate; 
++ (BOOL) sessionWithApiKey:(NSString *)apikey usingDelegate:(id)delegate; 
 
 /*!
- * @method displayWith:
+ * @method displayAppboy:
  * @discussion display the Appboy UI
- * @param control whether to create a new session
  * @return NO if appboy is unavailable
  */
-+ (BOOL) displayWith:(NSInteger)control;
-+ (BOOL) displayAppboy;             // becomes displayWith:kAppboyDisplayView
++ (BOOL) displayAppboy;
 
++ (BOOL) registerPushToken:(NSString *) token;
 
 /*!
  * @method shareMessage:[imageUrlString]
@@ -49,28 +47,32 @@ enum kApppboyDisplayControl {
 + (BOOL) shareMessage:(NSString *)message imageUrlString:(NSString *)imagePath;
 
 /*!
- * @method enableAccountWithApiKey:usingDelegate:
- * @discussion reenable the SDK if it's been disabled
- * @param apikey for the app
- * @param delegate optional AppboySessionDelegate
- * @return YES if started; NO if unavailable
+ * @method displayFeedback
+ * @discussion try to display the Appboy feedback section
+ * return NO if Appboy unavailable or already displayed
  */
-+ (BOOL) enableAccountWithApiKey:(NSString *)apikey 
-             usingDelegate:(id)delegate;
++ (BOOL) displayFeedback;
 
 /*!
- * @method isEnabled
- * @discussion test whether the Appboy SDK is enabled
- * @return YES/NO
+ * @method displayNews
+ * @discussion try to display the Appboy news and alerts section
+ * return NO if Appboy unavailable or already displayed
  */
-+ (BOOL) isEnabled;   // appboy has not been disabled by the user
++ (BOOL) displayNews;
 
 /*!
- * @method isStarted
- * @discussion test whether sessionWithApiKey has been invoked
- * @return YES/NO
+ * @method displayExplore
+ * @discussion try to display the Appboy Explore section
+ * return NO if Appboy unavailable or already displayed
  */
-+ (BOOL) isStarted;   // the Appboy library has been invoked
++ (BOOL) displayExplore;
+
+/*!
+ * @method displayOverview
+ * @discussion try to display the Appboy overview section
+ * return NO if Appboy unavailable or already displayed
+ */
++ (BOOL) displayOverview;
 
 /*!
  * @method isReady
@@ -86,12 +88,14 @@ enum kApppboyDisplayControl {
  */
 + (BOOL) isDisplayed; // the Appboy Session is displayed (appboy is in control)
 
-/*!
- * @method hasConnectivity
- * @discussion test whether the network is available for connection to Appboy
- * @return YES/NO
- */
-+ (BOOL) hasConnectivity; // there is internet connectivity
+
++ (void) setFacebookAccessToken:(NSString *)accessToken expiration:(NSDate *)expiresAt;
++ (void) setTwitterAccessToken:(NSString *)accessToken secret:(NSString *)secret;
++ (NSString *) getFacebookAccessToken;
++ (NSDate *) getFacebookAccessExpiration;
++ (NSString *) getTwitterAccessToken;
++ (NSString *) getTwitterAccessSecret;
+
 
 @end
 
