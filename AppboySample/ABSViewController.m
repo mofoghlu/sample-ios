@@ -39,9 +39,17 @@
 
 // Is notified when [AppboySession isReady] goes from false to true
 - (void) AppboyDelegateStatusChange {
-    
+    NSLog(@"In AppboyDelegateStatusChange");
 }
 
+- (void) AppboyDelegateAccountStatus {
+    // Use the helper methods [AppboySession get*AccessToken] to access the OAuth information.
+    NSLog(@"AppboyDelegateAccountStatus facebook:%@ expiresAt:%@, twitterAccessToken:%@, twitterAccessSecret:%@",
+          [AppboySession getFacebookAccessToken],
+          [AppboySession getFacebookAccessExpiration],
+          [AppboySession getTwitterAccessToken],
+          [AppboySession getTwitterAccessSecret]);
+}
 
 @synthesize appboyButton;
 @synthesize appboyButtonPortrait;

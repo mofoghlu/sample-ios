@@ -89,8 +89,28 @@ enum kApppboyDisplayControl {
 + (BOOL) isDisplayed; // the Appboy Session is displayed (appboy is in control)
 
 
-+ (void) setFacebookAccessToken:(NSString *)accessToken expiration:(NSDate *)expiresAt;
-+ (void) setTwitterAccessToken:(NSString *)accessToken secret:(NSString *)secret;
+/*!
+ * @method setFacebookAccessToken:expiration:
+ * @discussion set facebook credentials for Appboy to use with this app
+ * @param accessToken - see Facebook SDK documentation
+ * @param expiration
+ * @return YES/NO
+ */
++ (BOOL) setFacebookAccessToken:(NSString *)accessToken expiration:(NSDate *)expiresAt;
+
+/*!
+ * @method setTwitterAccessToken:secret:
+ * @discussion set twitter credentials for Appboy to use with this app
+ * @param accessToken - see Facebook SDK documentation
+ * @param secret
+ * @return YES/NO
+ */
++ (BOOL) setTwitterAccessToken:(NSString *)accessToken secret:(NSString *)secret;
+
+/*
+ * Retrieve the most recent Social Network AccountCredentials
+ * Call these after AppboyDelegateAccountStatus to get updated values
+ */
 + (NSString *) getFacebookAccessToken;
 + (NSDate *) getFacebookAccessExpiration;
 + (NSString *) getTwitterAccessToken;
@@ -106,6 +126,12 @@ enum kApppboyDisplayControl {
  * @discussion notify the App that Appboy's Server Connection has changed
  */
 - (void) AppboyDelegateStatusChange;
+
+/*!
+ * @method AppboyDelegateAccountStatus
+ * @discussion notify the App Social Network Account status has changed. use the get[Facebook/Twitter] methods to retrieve changes.
+ */
+- (void) AppboyDelegateAccountStatus;
 
 /*!
  * @method AppboyDelegateShouldDisplaySlideup
