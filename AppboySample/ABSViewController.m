@@ -18,37 +18,37 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+  [super viewDidUnload];
+  // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+      return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+  } else {
+      return YES;
+  }
 }
 
 // Is notified when [AppboySession isReady] goes from false to true
 - (void) AppboyDelegateStatusChange {
-    NSLog(@"In AppboyDelegateStatusChange");
+  NSLog(@"In AppboyDelegateStatusChange");
 }
 
 - (void) AppboyDelegateAccountStatus {
-    // Use the helper methods [AppboySession get*AccessToken] to access the OAuth information.
-    NSLog(@"AppboyDelegateAccountStatus facebook:%@ expiresAt:%@, twitterAccessToken:%@, twitterAccessSecret:%@",
-          [AppboySession getFacebookAccessToken],
-          [AppboySession getFacebookAccessExpiration],
-          [AppboySession getTwitterAccessToken],
-          [AppboySession getTwitterAccessSecret]);
+  // Use the helper methods [AppboySession get*AccessToken] to access the OAuth information.
+  NSLog(@"AppboyDelegateAccountStatus facebook:%@ expiresAt:%@, twitterAccessToken:%@, twitterAccessSecret:%@",
+        [AppboySession getFacebookAccessToken],
+        [AppboySession getFacebookAccessExpiration],
+        [AppboySession getTwitterAccessToken],
+        [AppboySession getTwitterAccessSecret]);
 }
 
 @synthesize appboyButton;
@@ -63,79 +63,32 @@
 @synthesize logoutWithFacebookButton;
 
 - (IBAction)toAppboyNews:(id)sender {
-    if ([AppboySession isReady]) {
-        [AppboySession displayNews];
-    }
-    else {
-        // If Appboy is not ready, it could be unavailable due to no internet connectivity,
-        // or it could still be loading. Customize this portion of the code to take whatever action you want.
-        NSString *message;
-        message = @"Appboy is loading. Try again.";
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: nil message: message delegate: nil
-                                              cancelButtonTitle: @"OK" otherButtonTitles: nil];
-        [alert show];
-        [alert release];
-    }
+  [AppboySession displayNews];   
 }
 
 - (IBAction)toAppboyFeedback:(id)sender {
-    if ([AppboySession isReady]) {
-        [AppboySession displayFeedback];
-    }
-    else {
-        // If Appboy is not ready, it could be unavailable due to no internet connectivity,
-        // or it could still be loading. Customize this portion of the code to take whatever action you want.
-        NSString *message;
-        message = @"Appboy is loading. Try again.";
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: nil message: message delegate: nil
-                                              cancelButtonTitle: @"OK" otherButtonTitles: nil];
-        [alert show];
-        [alert release];
-    }
+  [AppboySession displayFeedback];
 }
 
 - (IBAction)toAppboyExplore:(id)sender {
-    if ([AppboySession isReady]) {
-        [AppboySession displayExplore];
-    }
-    else {
-        // If Appboy is not ready, it could be unavailable due to no internet connectivity,
-        // or it could still be loading. Customize this portion of the code to take whatever action you want.
-        NSString *message;
-        message = @"Appboy is loading. Try again.";
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: nil message: message delegate: nil
-                                              cancelButtonTitle: @"OK" otherButtonTitles: nil];
-        [alert show];
-        [alert release];
-    }
+  [AppboySession displayExplore];
 }
 
 
 - (IBAction)loginWithFacebook:(id)sender {
-    [[self getDelegate] loginWithFacebook];
+  [[self getDelegate] loginWithFacebook];
 }
 
 - (IBAction)logoutWithFacebook:(id) sender {
-    [[self getDelegate].facebook logout];
+  [[self getDelegate].facebook logout];
 }
 
 - (ABSAppDelegate *) getDelegate {
-    return (ABSAppDelegate *)[[UIApplication sharedApplication] delegate]; 
+  return (ABSAppDelegate *)[[UIApplication sharedApplication] delegate]; 
 }
 
 - (IBAction)shareContent:(id)sender {
-    if ([AppboySession isReady]) {
-        [AppboySession shareMessage:@"I just finished using the Appboy Sample iOS App!" imageUrlString:@"http://a0.twimg.com/profile_images/1880187671/avatar_reasonably_small.jpg"];
-    }
-    else {
-        // If Appboy is not ready, it could be unavailable due to no internet connectivity,
-        // or it could still be loading. Customize this portion of the code to take whatever action you want.
-        NSString *message = @"Appboy is currently loading. Please try again in a moment.";
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: nil message: message delegate: nil
-                                              cancelButtonTitle: @"OK" otherButtonTitles: nil];
-        [alert show];
-        [alert release];
-    }
+  [AppboySession shareMessage:@"I just finished using the Appboy Sample iOS App!" imageUrlString:@"http://a0.twimg.com/profile_images/1880187671/avatar_reasonably_small.jpg"];
 }
 
 @end

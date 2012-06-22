@@ -52,7 +52,7 @@
         facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
     }
     if (![facebook isSessionValid]) {
-        NSArray *permissions = [[NSArray alloc] initWithObjects: @"user_about_me", @"user_hometown", @"email", @"publish_stream", @"user_birthday", @"user_likes", nil];
+        NSArray *permissions = [[NSArray alloc] initWithObjects: @"user_about_me", @"user_hometown", @"email", @"publish_stream", @"publish_actions", @"user_birthday", @"user_likes", nil];
         [facebook authorize:permissions];
     }
 }
