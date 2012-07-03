@@ -3,7 +3,7 @@
 //  AppboySDK
 //
 //  Created by Rob Haydt on 8/18/11.
-//  Copyright 2012 Appboy, Inc. All rights reserved.
+//  Copyright 2011, 2012 Appboy, Inc. All rights reserved.
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
