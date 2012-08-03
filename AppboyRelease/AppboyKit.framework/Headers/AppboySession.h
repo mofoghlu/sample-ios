@@ -203,6 +203,32 @@ enum kAppboyDisplayControl {
 * @return The Twitter OAuth secret for the current user after an authentication inside the Appboy user interface.
 */
 + (NSString *) getTwitterAccessSecret;
+
+/*!
+ * @method logAppEvent:
+ * @discussion add this app specific event to event tracking log that's lazily pushed up to the server
+ * @param eventName to log
+ * @return YES: added to the event log / NO: appboy hasn't started yet
+ */
++ (BOOL) logAppEvent:(NSString *)eventName;
+
+/*!
+ * @method logAppAction:
+ * @discussion add this app specific action to event tracking log that's lazily pushed up to the server
+ * @param eventName to log
+ * @return YES: added to the event log / NO: appboy hasn't started yet
+ */
++ (BOOL) logAppAction:(NSString *)actionName;
+
+/*!
+ * @method logAppPurchase:
+ * @discussion add this app specific action to event tracking log that's lazily pushed up to the server
+ * @param productId to log
+ * @param price in cents
+ * @return YES: added to the event log / NO: appboy hasn't started yet
+ */
++ (BOOL) logAppPurchase:(NSString *)productId priceCents:(NSUInteger) price;
+
 @end
 
 @protocol AppboySessionDelegate 
