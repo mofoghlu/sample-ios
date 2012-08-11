@@ -51,6 +51,12 @@
         [AppboySession getTwitterAccessSecret]);
 }
 
+- (BOOL) AppboyDelegateShouldDisplaySlideup:(NSDictionary *)slideupContext {
+  NSLog(@"In AppboyDelegateShouldDisplaySlideup. Return NO here to suppress the slide up.");
+  NSLog(@"This delegate is only called if a slide up would be shown.");
+  return YES;
+}
+
 @synthesize appboyButton;
 @synthesize appboyButtonPortrait;
 @synthesize appboyFeedbackButton;
