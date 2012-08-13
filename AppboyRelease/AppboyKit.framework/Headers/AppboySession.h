@@ -206,28 +206,95 @@ enum kAppboyDisplayControl {
 
 /*!
  * @method logAppEvent:
- * @discussion add this app specific event to event tracking log that's lazily pushed up to the server
+ * @discussion Adds an app specific event to event tracking log that's lazily pushed up to the server
  * @param eventName to log
+ * @example
+ *     [AppboySession logAppEvent:@"clicked_button"];
  * @return YES: added to the event log / NO: appboy hasn't started yet
  */
 + (BOOL) logAppEvent:(NSString *)eventName;
 
 /*!
  * @method logAppAction:
- * @discussion add this app specific action to event tracking log that's lazily pushed up to the server
+ * @discussion Adds an app specific action to event tracking log that's lazily pushed up to the server
  * @param eventName to log
+ * @example
+ *     [AppboySession logAppAction:@"signed_up"];
  * @return YES: added to the event log / NO: appboy hasn't started yet
  */
 + (BOOL) logAppAction:(NSString *)actionName;
 
 /*!
  * @method logAppPurchase:
- * @discussion add this app specific action to event tracking log that's lazily pushed up to the server
+ * @discussion Adds an in-app purchase to event tracking log that's lazily pushed up to the server
  * @param productId to log
  * @param price in cents
+ * @example
+ *     [AppboySession logAppPurchase:@"powerups" priceCents:99];
  * @return YES: added to the event log / NO: appboy hasn't started yet
  */
 + (BOOL) logAppPurchase:(NSString *)productId priceCents:(NSUInteger) price;
+
+/*!
+ * @method setUserAttributes:
+ * @discussion update the user attributes with the contents of the dictionary.
+ *   the keywords in the dictionary must be one of the defined kAppboyAttribute string constants
+ *   and the values must all be strings
+ * @param attributes dictionary containing new user attributes
+ * @example
+ *     [AppboySession setUserAttributes:[NSDictionary dictionaryWithObject:@"M" forKey:kAppboyAttributeGender]]
+ * @return YES: attributes passed to the server
+ *          NO: appboy hasn't started yet, the dictionary is invalid, or appboy is being displayed
+ */
++ (BOOL) setUserAttributes:(NSDictionary *)attributeDictionary;
+
+/*!
+ * @discussion Passing a key of kAppboyAttributeBio lets you update the current user's bio. Any string value is valid.
+ *
+ * @example
+ *     [AppboySession setUserAttributes:[NSDictionary dictionaryWithObject:@"I'm from Texas!" forKey:kAppboyAttributeBio]]
+ */
+#define kAppboyAttributeBio @"bio"
+
+/*!
+ * @discussion Passing a key of kAppboyAttributeGender lets you update the current user's gender.
+ *   The following strings are valid values:
+ *     "M"
+ *     "F"
+ *
+ * @example
+ *     [AppboySession setUserAttributes:[NSDictionary dictionaryWithObject:@"M" forKey:kAppboyAttributeGender]]
+ */
+#define kAppboyAttributeGender @"gender"
+
+/*!
+ * @discussion Passing a key of kAppboyAttributeDOB lets you update the current user's birthday.
+ *   The following string formats are valid values:
+ *     "YYYY-MM-DD"
+ *     "DD-MM-YYYY"
+ *
+ * @example
+ *     [AppboySession setUserAttributes:[NSDictionary dictionaryWithObject:@"1985-11-24" forKey:kAppboyAttributeDOB]]
+ */
+#define kAppboyAttributeDOB @"dob"
+
+/*!
+ * @discussion Passing a key of kAppboyAttributeCountry lets you update the current user's country. Any string value is
+ *   valid.
+ *
+ * @example  [AppboySession setUserAttributes:[NSDictionary dictionaryWithObject:@"USA" forKey:kAppboyAttributeCountry]]
+ */
+#define kAppboyAttributeCountry @"country"
+
+/*!
+ * @discussion Passing a key of kAppboyAttributeExternalID lets you pair Appboy's current user record with some external
+ *   ID. This is useful for data exports and joins against other customer relationship management databases such as
+ *   Salesforce. Any string value is valid.
+ *
+ * @example
+ *     [AppboySession setUserAttributes:[NSDictionary dictionaryWithObject:@"12345" forKey:kAppboyAttributeExternalID]]
+ */
+#define kAppboyAttributeExternalID @"external_id"
 
 @end
 
